@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="template/template :: head">
+</head>
+<body>
+<header th:replace="template/template :: header" ></header>
+
+<section>
+
+    <div class="container p-3">
+        <div class ="row">
+            <div class ="col-md-6 offset-md-3">
+
+                <div class="card">
+                    <div class="card-header text-center fs-4" th:text="${title}"></div>
+                    <div class="card-body">
+
+                        <form th:action="@{api/v1/diceGame}"  method="get">
+
+                            <button name="foo" value="upvote">Log out</button>
+
+
+                        </form></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer th:replace="template/template :: footer"></footer>
+
+</body>
+</html>
