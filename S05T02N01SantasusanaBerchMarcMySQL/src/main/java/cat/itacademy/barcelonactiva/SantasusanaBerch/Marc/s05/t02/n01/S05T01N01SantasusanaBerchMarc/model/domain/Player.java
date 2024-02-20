@@ -2,13 +2,12 @@ package cat.itacademy.barcelonactiva.SantasusanaBerch.Marc.s05.t02.n01.S05T01N01
 
 import cat.itacademy.barcelonactiva.SantasusanaBerch.Marc.s05.t02.n01.S05T01N01SantasusanaBerchMarc.model.enums.Role;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +17,9 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Player {
+@AllArgsConstructor
+@Builder
+public class Player  {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
