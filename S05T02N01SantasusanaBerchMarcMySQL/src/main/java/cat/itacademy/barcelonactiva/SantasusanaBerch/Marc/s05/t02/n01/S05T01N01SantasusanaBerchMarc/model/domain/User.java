@@ -16,16 +16,23 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name="Users")
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="`Id`")
     private Integer id;
+    @Column(name="`First_Name`")
     private String firstName;
+    @Column(name="`Last_Name`")
     private String lastName;
+    @Column(name="`Email`")
     private String email;
+    @Column(name="`Password`")
     private String password;
     @Enumerated(EnumType.STRING)
+    @Column(name="`Role`")
     private Role role;
 
 

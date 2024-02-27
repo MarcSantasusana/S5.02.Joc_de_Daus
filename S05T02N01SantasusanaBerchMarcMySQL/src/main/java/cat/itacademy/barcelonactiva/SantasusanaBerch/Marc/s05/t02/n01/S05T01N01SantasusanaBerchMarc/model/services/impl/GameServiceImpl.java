@@ -23,12 +23,8 @@ public class GameServiceImpl implements  GameService{
     @Override
     public Game add(Integer playerId) {
 
-        Random rand = new Random();
 
-        int max= 12;
-        int min = 1;
-
-        int value = rand.nextInt(max - min + 1) + min;
+        int value = generateRandomValue();
 
         Game game = new Game(playerId, value);
 
@@ -61,5 +57,16 @@ public class GameServiceImpl implements  GameService{
 
         return gameRepository.findAllByPlayerId(playerId);
 
+    }
+
+    public int generateRandomValue()
+    {
+        Random rand = new Random();
+
+        int max = 12;
+
+        int min = 1;
+
+        return rand.nextInt(max - min + 1) + min;
     }
 }

@@ -23,11 +23,17 @@ public class Player  {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="`Id`")
     private Integer id;
+    @Column(name="`Name`")
     private String name;
+    @Column(name="`Creation_Time`")
     private Date creation_Time;
+    @Column(name="`Win_Percentage`")
     private Float winPercentage;
+    @Column(name="`Total_Games`")
     private Integer totalGames;
+    @Column(name="`WonGames`")
     private Integer wonGames;
 
 
