@@ -12,7 +12,7 @@ import java.time.ZonedDateTime;
 public class PlayerExceptionHandler {
 
     @ExceptionHandler(PlayerNotFoundException.class )
-    public final ResponseEntity<Object> handleFruitNotFoundException(PlayerNotFoundException e)
+    public final ResponseEntity<Object> handlePlayerNotFoundException(PlayerNotFoundException e)
     {
 
         HttpStatus notFound = HttpStatus.NOT_FOUND;
@@ -26,7 +26,20 @@ public class PlayerExceptionHandler {
     }
 
     @ExceptionHandler(PlayerAlreadyExistsException.class )
-    public final ResponseEntity<Object> handleFruitAlreadyExistsException(PlayerAlreadyExistsException e)
+    public final ResponseEntity<Object> handlePlayerAlreadyExistsException(PlayerAlreadyExistsException e)
+    {
+        HttpStatus notFound = HttpStatus.IM_USED;
+
+        ApiException apiException = new ApiException(
+                e.getMessage(),
+                notFound,
+                ZonedDateTime.now(ZoneId.of("Z")));
+
+        return new ResponseEntity<>(apiException, notFound);
+    }
+
+    @ExceptionHandler(UserAlreadyExistsException.class )
+    public final ResponseEntity<Object> handleUserAlreadyExistsException(UserAlreadyExistsException e)
     {
         HttpStatus notFound = HttpStatus.IM_USED;
 
